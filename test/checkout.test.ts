@@ -1,15 +1,30 @@
 import Checkout from '../src/checkout';
 
-describe("Testing Constructor", () =>{
-    test("Stuff should happen", () => {
-        expect(Checkout).toBe(null);
+let checkout: Checkout;
+
+beforeEach(() => {
+    checkout = new Checkout();
+  });
+  
+  afterEach(() => {
+    checkout = null;
+  });
+
+
+describe("Test correct scanning product", () => {
+    it('scan', () =>{
+        let result = checkout.scan('ipd');
+        expect(result).toBe(true);
+
     })
 });
 
-describe("Test loadCatalogData", () => {
+describe("Test false scanning product", () => {
+    it('scan', () =>{
+        let result = checkout.scan('non');
+        expect(result).toBe(false);
 
+    })
 });
 
-describe("Test scanning product", () => {
 
-});

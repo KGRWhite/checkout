@@ -8,8 +8,8 @@ import Checkout from "./checkout";
 let co = new Checkout("");
 
 //Test Case 1
-co.scan();
-co.scan();
-co.scan();
-co.scan();
-co.total();
+co.scan("");
+co.scan("");
+co.scan("");
+co.scan("");
+co.total("");

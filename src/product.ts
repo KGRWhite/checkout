@@ -9,6 +9,20 @@ class Product{
         this._price = price;
 
     }
+
+    public getSKU(){
+        return this._SKU;
+    }
+
+    public getName(){
+        return this._name;
+    }
+
+    public getPrice(){
+        return this._price;
+    }
+
+    
 }
 
 export default Product;

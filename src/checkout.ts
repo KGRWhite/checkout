@@ -1,29 +1,65 @@
-import Product from "./models/product";
+import Product from "./product";
+import { readFileSync } from 'fs';
+import * as path from 'path';
 
 class Checkout{
     private _catalogPath: string;
-    private _products: Product[];
-    private _shoppingCart: Product[];
+    private _products: Product[] = new Array();;
+    private _shoppingCart: Product[] = new Array();
 
 
-    public constructor(catalogPath: string){
-        this._catalogPath = catalogPath;
+    public constructor(){
+        this._catalogPath = "./data/catalog.json";
         this.loadCatalogData(this._catalogPath);
     }
 
     public scan(SKU: string){
-        //TODO: implement scan method
-        //Can we find in products?
-        //if so then add to cart.
+    
+       let product = this.fetchProductIfExists(SKU);
+       if(product != null)
+       {
+           this._shoppingCart.push(product);
+           return true;
+       }
+       else return false;
+        
     }
 
-    private checkIfProductExists(SKU: string){
-    //TODO: Implement
+    public total(){
+
+    }
+
+    private checkOffers(){
+
+    }
+
+    private fetchProductIfExists(SKU: string){
+        
+        for(var i = 0; i < this._products.length; i++){
+            if(this._products[i].getSKU() == SKU){
+                return this._products[i];
+            }
+            else return null;
+    
+            }
     }
 
     private loadCatalogData(catalogPath: string){
-     let t = JSON.parse(catalogPath);
-     //TODO: convert JSON catalog file to Product List
+        const jsondata = readFileSync(path.join(__dirname, catalogPath), 'utf-8');
+         
+     
+        this.buildCatalogArray(jsondata);
+    }
+
+
+    private buildCatalogArray(jsondata: any){
+        let jsondata_str = JSON.parse(jsondata);
+
+        for (let i = 0; i < jsondata_str.length; i++) {
+            this._products.push(new Product(jsondata_str[i]['sku'], jsondata_str[i]['name'], jsondata_str[i]['price']))
+          }
+
+        
     }
 }
 export default Checkout;
