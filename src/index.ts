@@ -5,11 +5,11 @@ import Checkout from "./checkout";
 
 
 //Init
-let co = new Checkout("");
+let co = new Checkout();
 
 //Test Case 1
 co.scan("");
 co.scan("");
 co.scan("");
 co.scan("");
-co.total("");
+co.total();

@@ -22,6 +22,10 @@ class Product{
         return this._price;
     }
 
+    public setPrice(newPrice: number){
+        this._price = newPrice;
+    }
+
     
 }
 
