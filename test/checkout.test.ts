@@ -11,7 +11,7 @@ beforeEach(() => {
   });
 
 
-describe("Test correct scanning product", () => {
+describe("Checkout.Scan - Correct Value - Returns True", () => {
     it('scan', () =>{
         let result = checkout.scan('ipd');
         expect(result).toBe(true);
@@ -19,7 +19,7 @@ describe("Test correct scanning product", () => {
     })
 });
 
-describe("Test false scanning product", () => {
+describe("Checkout.Scan - False Value - Returns False", () => {
     it('scan', () =>{
         let result = checkout.scan('non');
         expect(result).toBe(false);

@@ -13,48 +13,23 @@ class Checkout {
   public constructor() {
     this._catalogPath = "./data/catalog.json";
     this.loadCatalogData(this._catalogPath);
+    this._shoppingCart = new ShoppingCart(this._products);
   }
 
   public scan(SKU: string) {
     let product = this.fetchProductIfExists(SKU);
     if (product != null) {
-      this._shoppingCart.Add(product);
+      this._shoppingCart.add(product);
       return true;
     } else return false;
   }
 
   public total() {
-
-   this.checkOffers();
-   return this._total;
-
+    return this._shoppingCart.getTotal();
   }
 
-  private checkOffers() {
-    //Offers
-    let _shoppingCartContents = this._shoppingCart.getShoppingCartContents();
-    
-    
-    for (var i = 0; i < _shoppingCartContents.length; i++) {
-        
-        //1. 3 for 2 deal on Apple TVs.
-        
-        
-        //2. Super Ipad - price will drop to $499.99 each, if someone buys more than 4
-        
-        
-        //3. bundle in a free VGA adapter free of charge with every MacBook Pro sold
-        if (this._shoppingCart[i].getSKU() == "mbp"){
-            for(var j = 0; j < this._products.length; j++){
-                if(this._products[i].getSKU() == "vga"){
-                    let product = this._products[i];
-                    product.setPrice(0);
-                    this._shoppingCart.Add(product);
-                }
-            }
-        }
-    }
-    
+  public getAvailableProducts() {
+    return this._products;
   }
 
   private fetchProductIfExists(SKU: string) {
