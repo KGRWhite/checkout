@@ -1,0 +1,28 @@
+{
+  "name": "checkout",
+  "version": "1.0.0",
+  "description": "A checkout system written in Typescript",
+  "main": ".src/index.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KGRWhite/checkout.git"
+  },
+  "author": "Kyle White",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KGRWhite/checkout/issues"
+  },
+  "homepage": "https://github.com/KGRWhite/checkout#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4"
+  }
+}
