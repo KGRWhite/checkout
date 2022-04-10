@@ -1,9 +1,12 @@
 # checkout
-A checkout system written in TypeScript
+A shopping checkout system written in TypeScript with minimal dependancies.
 
-## Summary
+## Getting Started
+
+
 
 ## Dependancies
+ - Jest Testing Library (https://jestjs.io/)
 
 ## Tests
 This system uses the jest testing library (https://jestjs.io/).

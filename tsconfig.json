@@ -1,6 +1,11 @@
 {
-    "include": ["./src", "./src/data/catalog.json"],
-    "compilerOptions": {
-      "outDir": "build"
-    }
-  }
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "outDir": "build"
+  },
+  "include": ["src/**/*"],
+}

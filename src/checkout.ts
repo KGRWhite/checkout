@@ -11,7 +11,7 @@ class Checkout {
   private _total: Number;
 
   public constructor() {
-    this._catalogPath = "./data/catalog.json";
+    this._catalogPath = "./catalog.json";
     this.loadCatalogData(this._catalogPath);
     this._shoppingCart = new ShoppingCart(this._products);
   }
