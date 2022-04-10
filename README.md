@@ -1,5 +1,5 @@
 # checkout
-A shopping checkout system written in TypeScript with minimal dependancies.
+A shopping checkout system written in TypeScript with minimal dependencies.
 
 ## Overview
  The checkout object grabs the latest product data from catalog.json which can be edited before the build. Ideally the product data would be within a database but i've kept it simple for this example.
@@ -11,7 +11,7 @@ After ensuring the dependancies are installed you can call either the build.bat 
 Alternatively you can run 'tsc' in a cli or run 'jest' to trigger the tests (further info under the Tests header).
 
 
-## Dependancies
+## Dependencies
 - TypeScript
 - Node/npm (for building)
  - Jest Testing Library (https://jestjs.io/)
