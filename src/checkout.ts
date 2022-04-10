@@ -35,9 +35,17 @@ class Checkout {
   private fetchProductIfExists(SKU: string) {
     for (var i = 0; i < this._products.length; i++) {
       if (this._products[i].getSKU() == SKU) {
-        return this._products[i];
-      } else return null;
+        //create new instance of product
+        let product = new Product(
+          this._products[i].getSKU(),
+          this._products[i].getName(),
+          this._products[i].getPrice()
+        );
+
+        return product;
+      }
     }
+    return null;
   }
 
   private loadCatalogData(catalogPath: string) {

@@ -8,8 +8,9 @@ import Checkout from "./checkout";
 let co = new Checkout();
 
 //Test Case 1
-co.scan("");
-co.scan("");
-co.scan("");
-co.scan("");
+console.log("Running Test Case 1");
+co.scan("atv");
+co.scan("atv");
+co.scan("atv");
+co.scan("vga");
 co.total();

@@ -1,5 +1,5 @@
 {
-    "include": ["./src"],
+    "include": ["./src", "./src/data/catalog.json"],
     "compilerOptions": {
       "outDir": "build"
     }

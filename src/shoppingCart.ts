@@ -23,16 +23,18 @@ class ShoppingCart {
   }
 
   public getTotal() {
+    this.checkAndApplyDiscounts();
     return this._total;
   }
 
   public checkAndApplyDiscounts() {
     //Offers
     //1. 3 for 2 deal on Apple TVs.
-    if (this.getProductsInCartQuantity("atv") == 3) {
+    if (this.getProductsInCartQuantity("atv") >= 3) {
       for (var i = 0; i < this._shoppingCart.length; i++) {
         if (this._shoppingCart[i].getSKU() == "atv") {
-          //TODO
+          this._shoppingCart[i].setPrice(0);
+          break; // We only need to change the first atv we find.
         }
       }
     }
@@ -47,23 +49,30 @@ class ShoppingCart {
     //3. bundle in a free VGA adapter free of charge with every MacBook Pro sold
     for (var i = 0; i < this._shoppingCart.length; i++) {
       if (this._shoppingCart[i].getSKU() == "mbp") {
-        for (var j = 0; i < this._products.length; j++) {
-          if (this._products[i].getSKU() == "vga") {
-            let product = this._products[i];
-            product.setPrice(0);
-            this.add(product);
+        if (this.getProductsInCartQuantity("vga") > 0) {
+          for (var j = 0; j < this._shoppingCart.length; j++) {
+            if (this._shoppingCart[j].getSKU() == "vga") {
+              this._shoppingCart[j].setPrice(0);
+            }
           }
         }
       }
     }
+    this.calculateTotal();
   }
 
   public getShoppingCartContents() {
     return this._shoppingCart;
   }
 
+  private calculateTotal() {
+    for (var i = 0; i < this._shoppingCart.length; i++) {
+      this._total += this._shoppingCart[i].getPrice();
+    }
+  }
+
   private getProductsInCartQuantity(SKU: string) {
-    let count: number;
+    let count: number = 0;
     for (var i = 0; i < this._shoppingCart.length; i++) {
       if (this._shoppingCart[i].getSKU() == SKU) {
         count++;
