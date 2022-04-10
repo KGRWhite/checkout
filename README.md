@@ -7,7 +7,8 @@ A shopping checkout system written in TypeScript with minimal dependancies.
 
 
 ## Getting Started
-    After ensuring the dependancies are installed you can call either the build.bat or build.sh scripts. This will run the Unit tests, compile the code and also copies over the catalog.json file.
+After ensuring the dependancies are installed you can call either the build.bat or build.sh scripts. This will run the Unit tests, compile the code and also copies over the catalog.json file.
+Alternatively you can run 'tsc' in a cli or run 'jest' to trigger the tests (further info under the Tests header).
 
 
 ## Dependancies
